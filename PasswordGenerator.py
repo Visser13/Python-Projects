@@ -13,7 +13,7 @@ def main():
     nummber_upper = len(nummber_list)
 
     password_length = 12
-    password_amount = 10
+    password_amount = 1000
     password_list = []
 
     password_count = 0
