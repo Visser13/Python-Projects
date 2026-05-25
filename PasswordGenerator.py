@@ -1,5 +1,6 @@
 import random
-
+import tkinter as tk
+from tkinter import filedialog
 
 def main():
 
@@ -37,22 +38,35 @@ def main():
 
         password_count += 1
         password_list.append(password)
-        print(password)
+    
+    folder_path = "passwords.txt"
+    save(folder_path, password_list)
     
 
+def select_folder_path():
+    root = tk.Tk()
+    root.withdraw()
+    file_path = filedialog.askdirectory(title="Select a folder.")
+    return file_path
+
+def save(path, string_list):
+    f = open(path, "w")
+    count = 0
+    while count < len(string_list):
+        f.write(string_list[count])
+        f.write("\n")
+        count += 1
+    f.close
 
 def generate_lowercase_letters ():
-    result = []
     result = ["a","b","c","d","e","f","g","h","i","j","k","m","n","p","q","r","s","t","u","v","w","x","y","z"]
     return result
 
 def generate_uppercase_letters ():
-    result = []
     result = ["A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z"]
     return result
 
 def generate_number ():
-    result = []
     result = ["1","2","3","4","5","6","7","8","9","0"]
     return result
 
